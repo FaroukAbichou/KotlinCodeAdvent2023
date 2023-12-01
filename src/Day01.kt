@@ -1,6 +1,5 @@
 fun main() {
     val input = readInput("Day01")
-
     getFinalResult(input).println()
 }
 
