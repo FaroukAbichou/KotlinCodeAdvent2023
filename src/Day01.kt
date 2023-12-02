@@ -3,17 +3,17 @@ fun main() {
     getFinalResult(input).println()
 }
 
-fun getFinalResult(input: List<String>): Int {
+private fun getFinalResult(input: List<String>): Int {
     return input.sumOf { line ->
         getLineSum(getSpelledLettersNumber(line))
     }
 }
 
-fun getLineSum(pair: List<Int>): Int {
+private fun getLineSum(pair: List<Int>): Int {
     return (pair.first().toString().plus(pair.last())).toInt()
 }
 
-fun getSpelledLettersNumber(input: String): List<Int> {
+private fun getSpelledLettersNumber(input: String): List<Int> {
     val spelledOutNumbers = mapOf(
         1 to "one",
         2 to "two",
