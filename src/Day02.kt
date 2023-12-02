@@ -6,22 +6,22 @@ fun main() {
 
 fun part2(input: List<String>): Int {
     var sumOfPower = 0
-    input.forEachIndexed { index, game ->
+    input.forEach { game ->
         val parts = getGameParts(game)
         var redCount = 0
         var blueCount = 0
         var greenCount = 0
+
         parts.forEach { part ->
-            if (getCubesCountByName("red", part) > redCount) {
-                redCount = getCubesCountByName("red", part)
-            }
-            if (getCubesCountByName("blue", part) > blueCount) {
-                blueCount = getCubesCountByName("blue", part)
-            }
-            if (getCubesCountByName("green", part) > greenCount) {
-                greenCount = getCubesCountByName("green", part)
-            }
+            val redCubesCountByName = getCubesCountByName("red", part)
+            val blueCubesCountByName = getCubesCountByName("blue", part)
+            val greenCubesCountByName = getCubesCountByName("green", part)
+
+            if (redCubesCountByName > redCount) redCount = redCubesCountByName
+            if (blueCubesCountByName > blueCount) blueCount = blueCubesCountByName
+            if (greenCubesCountByName > greenCount) greenCount = greenCubesCountByName
         }
+
         sumOfPower += redCount * blueCount * greenCount
     }
     return sumOfPower
