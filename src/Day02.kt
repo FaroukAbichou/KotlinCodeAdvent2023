@@ -1,10 +1,10 @@
 fun main() {
     val input = readInput("Day02")
-    part1(input)
-    part2(input)
+    part1(input).println()
+    part2(input).println()
 }
 
-fun part2(input: List<String>) {
+fun part2(input: List<String>): Int {
     var sumOfPower = 0
     input.forEachIndexed { index, game ->
         val parts = getGameParts(game)
@@ -23,23 +23,18 @@ fun part2(input: List<String>) {
             }
         }
         sumOfPower += redCount * blueCount * greenCount
-        println(parts)
-        println(redCount)
-        println(blueCount)
-        println(greenCount)
-        println(sumOfPower)
     }
-//    println(sumOfPower)
+    return sumOfPower
 }
 
-fun part1(input: List<String>) {
+fun part1(input: List<String>): Int {
     var IDs = 0
     input.forEachIndexed { index, game ->
         val parts = getGameParts(game)
         if (isGameValid(parts)) IDs += index + 1
     }
+    return IDs
 }
-
 
 fun isGameValid(game: List<String>): Boolean {
     val bagCubes = mapOf(
